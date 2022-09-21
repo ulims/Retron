@@ -1,11 +1,7 @@
-import 'dart:async';
-import 'dart:convert';
+
 
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
-import 'package:retron/models/coinModel.dart';
 
-import 'package:flutter/material.dart';
 import 'package:retron/screens/home.dart';
 
 import 'package:retron/shared/constant.dart';
@@ -24,7 +20,7 @@ class _LoginpricesState extends State<Loginprices> {
     return Scaffold(
         backgroundColor: background,
         appBar: PreferredSize(
-          preferredSize: Size.fromHeight(50),
+          preferredSize: const Size.fromHeight(50),
           child: AppBar(
             automaticallyImplyLeading: false,
             backgroundColor: background,
@@ -40,29 +36,38 @@ class _LoginpricesState extends State<Loginprices> {
             elevation: 0.0,
           ),
         ),
-        body: CoinCard(),
-        floatingActionButton: FloatingActionButton.extended(
-          backgroundColor: textColor100,
-          foregroundColor: Colors.black,
-          onPressed: () {
-            Navigator.push(
+        body: Column(
+          children: [
+              const CoinCard(),
+              const Spacer(),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 18),
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(30),
+                    gradient: storyGradient,
+                  ),
+                  height: 55,
+                  width: double.infinity,
+                  child: TextButton(onPressed: (() {
+                    Navigator.push(
                 context, MaterialPageRoute(builder: ((context) => const Home())));
-          },
-          label: Text(
-            'Wallet',
-            style: TextStyle(
-              fontFamily: 'Mabry-Pro',
-              fontSize: 16,
-              fontWeight: FontWeight.w500,
-            ),
-          ),
-          icon: Image.asset(
-            'assets/images/wallet.png',
-            cacheHeight: 23,
-            cacheWidth: 23,
-            color: background,
-            alignment: Alignment.center,
-          ),
-        ));
+                  }), 
+                  child: const Text(
+                    'Go to Wallet',
+                    style: TextStyle(
+                      fontFamily: 'Mabry-Pro',
+                      fontSize: 15,
+                      fontWeight: FontWeight.w900,
+                      color: background
+                    ),
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 40,)
+          ],
+        ),
+        );
   }
 }
