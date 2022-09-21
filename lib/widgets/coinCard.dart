@@ -52,6 +52,7 @@ class _CoinCardState extends State<CoinCard> {
         child: ListView.builder(
           itemCount: coinlist.length,
           shrinkWrap: true,
+          physics: NeverScrollableScrollPhysics(),
           itemBuilder: (context, index) {
             return Container(
               height: 75,
