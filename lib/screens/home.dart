@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:retron/models/assetModel.dart';
@@ -14,39 +13,47 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  
-   List<Asset> assetlist = <Asset>[
+  List<Asset> assetlist = <Asset>[
     Asset(
-      name: 'Bitcoin', 
-      symbol: 'BTC', 
-      imageUrl: 'assets/images/bitcoin logo.png', 
-      price: 000, 
-      amount: 0,),
-      Asset(
-      name: 'Tether', 
-      symbol: 'USDT', 
-      imageUrl: 'assets/images/tether logo.png', 
-      price: 000, 
-      amount: 0,),
-      Asset(
-      name: 'Tron', 
-      symbol: 'TRX', 
-      imageUrl: 'assets/images/tron logo.png', 
-      price: 000, 
-      amount: 0,),
-      Asset(
-      name: 'Apecoin', 
-      symbol: 'APE', 
-      imageUrl: 'assets/images/apecoin logo.png', 
-      price: 000, 
-      amount: 0,),
-      Asset(
-      name: 'Ripple', 
-      symbol: 'XRP', 
-      imageUrl: 'assets/images/ripplr logo.png', 
-      price: 000, 
-      amount: 0,),
+      name: 'Bitcoin',
+      symbol: 'BTC',
+      imageUrl: 'assets/images/bitcoin logo.png',
+      price: 000,
+      amount: 0,
+    ),
+    Asset(
+      name: 'Tether',
+      symbol: 'USDT',
+      imageUrl: 'assets/images/tether logo.png',
+      price: 000,
+      amount: 0,
+    ),
+    Asset(
+      name: 'Tron',
+      symbol: 'TRX',
+      imageUrl: 'assets/images/tron logo.png',
+      price: 000,
+      amount: 0,
+    ),
+    Asset(
+      name: 'Apecoin',
+      symbol: 'APE',
+      imageUrl: 'assets/images/apecoin logo.png',
+      price: 000,
+      amount: 0,
+    ),
+    Asset(
+      name: 'Ripple',
+      symbol: 'XRP',
+      imageUrl: 'assets/images/ripplr logo.png',
+      price: 000,
+      amount: 0,
+    ),
   ];
+  void initState() {
+    super.initState();
+    print('init state called');
+  }
 
   ///
   @override
@@ -101,7 +108,7 @@ class _HomeState extends State<Home> {
                                 height: 87,
                                 child: Column(
                                   children: [
-                                    Container(                                     
+                                    Container(
                                       height: 60,
                                       width: 60,
                                       decoration: BoxDecoration(
@@ -110,20 +117,22 @@ class _HomeState extends State<Home> {
                                       ),
                                       child: IconButton(
                                         onPressed: () {},
-                                        icon: Image.asset('assets/images/send.png'),
+                                        icon: Image.asset(
+                                            'assets/images/send.png'),
                                         iconSize: 60.0,
                                       ),
                                     ),
-                                    const SizedBox(height: 4,),
+                                    const SizedBox(
+                                      height: 4,
+                                    ),
                                     const Text(
                                       'Send',
                                       style: TextStyle(
-                                        color: background,
-                                        fontFamily: 'Mabry-Pro',
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.w400
-                                        ),
-                                      ),
+                                          color: background,
+                                          fontFamily: 'Mabry-Pro',
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w400),
+                                    ),
                                   ],
                                 ),
                               ),
@@ -133,7 +142,6 @@ class _HomeState extends State<Home> {
                               Column(
                                 children: [
                                   Container(
-                                    
                                     height: 60,
                                     width: 60,
                                     decoration: BoxDecoration(
@@ -143,22 +151,27 @@ class _HomeState extends State<Home> {
                                     child: IconButton(
                                       onPressed: () {
                                         Navigator.push(
-                  context, MaterialPageRoute(builder: ((context) => const Sendcard())));
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: ((context) =>
+                                                    const Sendcard())));
                                       },
-                                      icon: Image.asset('assets/images/receive.png'),
+                                      icon: Image.asset(
+                                          'assets/images/receive.png'),
                                       iconSize: 60.0,
                                     ),
                                   ),
-                                  const SizedBox(height: 4,),
+                                  const SizedBox(
+                                    height: 4,
+                                  ),
                                   const Text(
                                     'Receive',
                                     style: TextStyle(
-                                      color: background,
-                                      fontFamily: 'Mabry-Pro',
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w400
-                                      ),
-                                    ),
+                                        color: background,
+                                        fontFamily: 'Mabry-Pro',
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w400),
+                                  ),
                                 ],
                               ),
                               const SizedBox(
@@ -167,7 +180,6 @@ class _HomeState extends State<Home> {
                               Column(
                                 children: [
                                   Container(
-                                    
                                     height: 60,
                                     width: 60,
                                     decoration: BoxDecoration(
@@ -176,20 +188,22 @@ class _HomeState extends State<Home> {
                                     ),
                                     child: IconButton(
                                       onPressed: () {},
-                                      icon: Image.asset('assets/images/trade.png'),
+                                      icon: Image.asset(
+                                          'assets/images/trade.png'),
                                       iconSize: 60.0,
                                     ),
                                   ),
-                                  const SizedBox(height: 4,),
+                                  const SizedBox(
+                                    height: 4,
+                                  ),
                                   const Text(
                                     'Trade',
                                     style: TextStyle(
-                                      color: background,
-                                      fontFamily: 'Mabry-Pro',
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w400
-                                      ),
-                                    ),
+                                        color: background,
+                                        fontFamily: 'Mabry-Pro',
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w400),
+                                  ),
                                 ],
                               ),
                             ],
@@ -201,33 +215,34 @@ class _HomeState extends State<Home> {
                 ),
               ),
             ),
-            
+
             ///
-            const SizedBox(height: 25,),
+            const SizedBox(
+              height: 25,
+            ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 18,),
+              padding: const EdgeInsets.symmetric(
+                horizontal: 18,
+              ),
               child: Column(
                 children: [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.center,
-                    children: const[
-                      Text('Assets',
-                      style: TextStyle(
-                        color: textColor100,
-                        fontFamily: 'Mabry-Pro',
-                        fontSize: 20,
-                        fontWeight: FontWeight.w900,
+                    children: const [
+                      Text(
+                        'Assets',
+                        style: TextStyle(
+                          color: textColor100,
+                          fontFamily: 'Mabry-Pro',
+                          fontSize: 20,
+                          fontWeight: FontWeight.w900,
                         ),
-                        
                       ),
-                      
                     ],
                   ),
-                 
                 ],
               ),
-              
             ),
             ...assetlist.map((coins) => AssetCard(coins: coins))
           ],

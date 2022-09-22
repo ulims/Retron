@@ -6,6 +6,7 @@ import 'package:retron/screens/home.dart';
 
 import 'package:retron/shared/constant.dart';
 import 'package:retron/widgets/coinCard.dart';
+import 'package:retron/widgets/nav.dart';
 
 class Loginprices extends StatefulWidget {
   const Loginprices({Key? key}) : super(key: key);
@@ -51,7 +52,7 @@ class _LoginpricesState extends State<Loginprices> {
                   width: double.infinity,
                   child: TextButton(onPressed: (() {
                     Navigator.push(
-                context, MaterialPageRoute(builder: ((context) => const Home())));
+                context, MaterialPageRoute(builder: ((context) => const NavBar())));
                   }), 
                   child: const Text(
                     'Go to Wallet',

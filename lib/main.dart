@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:retron/screens/login.dart';
 import 'package:retron/screens/onbaord.dart';
-import 'package:retron/shared/constant.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 
@@ -38,7 +37,7 @@ class _MyappState extends State<MyApp> {
        theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-       home: isviewed != 0 ? OnBoard() : Login(),
+       home: isviewed != 0 ? const OnBoard() : const Login(),
     );
   }
 }
