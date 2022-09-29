@@ -4,21 +4,26 @@ import 'package:retron/screens/login.dart';
 import 'package:retron/screens/onbaord.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-
 int? isviewed;
 
+
 void main() async {
+ WidgetsFlutterBinding.ensureInitialized();
+
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown
+  ]);
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-    statusBarColor: Colors.transparent,
-    statusBarBrightness: Brightness.dark,
-    systemNavigationBarColor: Colors.black,
-    statusBarIconBrightness: Brightness.light
-  ));
-  WidgetsFlutterBinding.ensureInitialized();
+      statusBarColor: Colors.transparent,
+      statusBarBrightness: Brightness.dark,
+      systemNavigationBarColor: Colors.black,
+      statusBarIconBrightness: Brightness.light));
+
   SharedPreferences prefs = await SharedPreferences.getInstance();
   isviewed = prefs.getInt('onBoard');
+
   runApp(const MyApp());
-  
 }
 
 class MyApp extends StatefulWidget {
@@ -34,10 +39,11 @@ class _MyappState extends State<MyApp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Retron',
-       theme: ThemeData(
+      theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-       home: isviewed != 0 ? const OnBoard() : const Login(),
+      home: isviewed != 0 ? const OnBoard() : const Login(),
+      
     );
   }
 }

@@ -12,23 +12,30 @@ const Color gradient1 = Color(0xffB1E8ED);
 const Color gradient2 = Color(0xffCFEADB);
 const Color gradient3 = Color(0xffBDE5DD);
 const Color gradient4 = Color(0xffF3D8BB);
-const Color background = Color(0xff0A0A0C);
+const Color background = Color(0xff000005);
 const Color stroke = Color(0xff2F2F2F);
+const Color contain = Color(0xff17171B);
 const Color error = Color(0xffFC4F51);
 const Color success = Color(0xff39D6B6);
+const Color fill = Color(0xff282828);
 
 const LinearGradient storyGradient = LinearGradient(
-    begin: Alignment.centerLeft,
-    end: Alignment.centerRight,
-    colors: [gradient1,gradient2,gradient3,gradient4],
-  );
-  const LinearGradient fading = LinearGradient(
-    begin: Alignment.centerLeft,
-    end: Alignment.centerRight,
-    colors: [textColor5, textColor5],
-  );
-  const LinearGradient homegradient = LinearGradient(
-    begin: Alignment.topLeft,
-    end: Alignment.topRight,
-    colors: [gradient1, gradient2, gradient3,],
-  );
+  begin: Alignment.centerLeft,
+  end: Alignment.centerRight,
+  colors: [gradient1, gradient2, gradient3, gradient4],
+);
+const LinearGradient fading = LinearGradient(
+  begin: Alignment.centerLeft,
+  end: Alignment.centerRight,
+  colors: [textColor5, textColor5],
+);
+const LinearGradient homegradient = LinearGradient(
+  begin: Alignment.topLeft,
+  end: Alignment.topRight,
+  colors: [
+    gradient1,
+    gradient2,
+    gradient3,
+  ],
+);
+

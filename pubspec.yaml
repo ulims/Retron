@@ -32,6 +32,9 @@ dependencies:
   shared_preferences: ^2.0.15
   http: ^0.13.5
   intl: ^0.17.0
+  pretty_qr_code: ^2.0.2
+  type_text: ^1.0.3
+  flutter_profile_picture: ^2.0.0
 
 
   # The following adds the Cupertino Icons font to your application.

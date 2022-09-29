@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:retron/shared/constant.dart';
+import 'package:retron/widgets/coinCard.dart';
+
+
 
 class Prices extends StatefulWidget {
   const Prices({Key? key}) : super(key: key);
@@ -11,20 +12,17 @@ class Prices extends StatefulWidget {
 }
 
 class _PricesState extends State<Prices> {
-   void initState() {
-    super.initState();
-    print('init state called for prices');
-  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: background,
       appBar: PreferredSize(
+          preferredSize: const Size.fromHeight(60),
           child: Container(
             decoration: BoxDecoration(boxShadow: [
               BoxShadow(
                 color: textColor5.withOpacity(0.5),
-                offset: Offset(0, 0.4,),
+                offset: const Offset(0, 0.4,),
                 blurRadius: 0,
               )
             ]),
@@ -33,7 +31,7 @@ class _PricesState extends State<Prices> {
               automaticallyImplyLeading: false,
               centerTitle: false,
               elevation: 0.0,
-              title: Text(
+              title: const Text(
                 "Prices",
                 style: TextStyle(
                   fontFamily: 'Mabry-Pro',
@@ -44,9 +42,8 @@ class _PricesState extends State<Prices> {
                 ),
             ),
           ),
-          preferredSize: Size.fromHeight(60),
-          
         ),
+        body: CoinCard(),
     );
   }
 }

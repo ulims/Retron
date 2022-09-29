@@ -89,26 +89,26 @@ class _LoginState extends State<Login> {
                           fontWeight: FontWeight.w400,
                           color: textColor100,
                         ),
-                        decoration: InputDecoration(
+                          decoration: InputDecoration(
                           focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(5),
-                              borderSide: const BorderSide(
-                                color: textColor10,
-                              )),
+                          borderRadius: BorderRadius.circular(5),
+                          borderSide: const BorderSide(
+                          color: textColor10,
+                          )),
                           enabledBorder: const UnderlineInputBorder(
-                              borderSide: BorderSide(color: textColor10)),
+                          borderSide: BorderSide(color: textColor10)),
                           border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(5)),
+                          borderRadius: BorderRadius.circular(5)),
                           focusColor: textColor100,
                           fillColor: inputColor,
                           filled: true,
                           contentPadding: const EdgeInsets.fromLTRB(15, 17, 15, 17),
                           hintText: 'Email address',
                           hintStyle: const TextStyle(
-                              fontFamily: 'Mabry-Pro',
-                              fontSize: 15,
-                              fontWeight: FontWeight.w400,
-                              color: textColor40),
+                          fontFamily: 'Mabry-Pro',
+                          fontSize: 15,
+                          fontWeight: FontWeight.w400,
+                          color: textColor40),
                         )),
                   )),
               Spacer(),

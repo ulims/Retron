@@ -24,7 +24,7 @@ class _OnBoardState extends State<OnBoard> {
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit. At blandit at velit semper. Ut.',
     ),
     OnboardModel(
-      img: 'assets/images/Onboard 2.png',
+      img: 'assets/images/onboard 2.png',
       text: 'Access crypto loan with any digital assets.',
       desc:
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Molestie.',

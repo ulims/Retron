@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:retron/screens/home.dart';
-import 'package:retron/screens/loans.dart';
 import 'package:retron/screens/prices.dart';
+import 'package:retron/screens/mining.dart';
 import 'package:retron/screens/profile.dart';
 import 'package:retron/shared/constant.dart';
 
@@ -14,7 +14,7 @@ class NavBar extends StatefulWidget {
 
 class _NavBarState extends State<NavBar> {
  final List<Widget> _widgetpages = const[
-    Home(),Prices(),Loans(),Profile()
+    Home(), Mining(),Prices(),Profile()
   ];
 
   int _selectedTabIndex = 0;
@@ -34,11 +34,12 @@ class _NavBarState extends State<NavBar> {
         
       ),
       bottomNavigationBar: PreferredSize(
-        child: Container(
+        preferredSize: const Size.fromHeight(kToolbarHeight),
+        child:  Container(
           decoration: BoxDecoration(boxShadow: [
               BoxShadow(
                 color: textColor5.withOpacity(0.5),
-                offset: Offset(0.0, -0.9,),
+                offset: const Offset(0.0, -0.4,),
                 blurRadius: 0,
               )
             ]),
@@ -61,24 +62,24 @@ class _NavBarState extends State<NavBar> {
             type: BottomNavigationBarType.fixed,
             items: const[
               BottomNavigationBarItem(
-                icon: ImageIcon(AssetImage('assets/images/wallet.png')),
-                label: 'Wallet',
+                icon: ImageIcon(AssetImage('assets/images/home.png')),
+                label: 'Home',
               ),
+              BottomNavigationBarItem(
+                  icon: ImageIcon(AssetImage('assets/images/wallet.png')),
+                  label: 'Mining'),
               BottomNavigationBarItem(
                   icon: ImageIcon(AssetImage('assets/images/prices.png')),
                   label: 'Prices'),
-              BottomNavigationBarItem(
-                  icon: ImageIcon(AssetImage('assets/images/document.png')),
-                  label: 'Loans'),
               BottomNavigationBarItem(
                   icon: ImageIcon(AssetImage('assets/images/profile.png')),
                   label: 'Profile'),
             ],
             currentIndex: _selectedTabIndex,
             onTap: onItemTap,
+
           ),
         ),
-        preferredSize: Size.fromHeight(10),
       ),
     );
   }
