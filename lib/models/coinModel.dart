@@ -1,4 +1,7 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 
 class Coin {
   String imageUrl;
@@ -15,5 +18,6 @@ class Coin {
       required this.price,
       required this.changePercentage,
       required this.about
+      
       });
 }

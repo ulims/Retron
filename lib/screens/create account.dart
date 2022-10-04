@@ -4,6 +4,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:retron/screens/login_prices.dart';
 import 'package:retron/screens/otp.dart';
 import 'package:retron/shared/constant.dart';
+import 'package:retron/widgets/bottomsheet.dart';
 
 class CreateAccount extends StatefulWidget {
   const CreateAccount({Key? key}) : super(key: key);
@@ -14,7 +15,7 @@ class CreateAccount extends StatefulWidget {
 
 class _CreateAccountState extends State<CreateAccount> {
   final _formKey = GlobalKey<FormState>();
-  String email = '';
+  String username = '';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -79,7 +80,7 @@ class _CreateAccountState extends State<CreateAccount> {
                         validator: (val) =>
                             val!.isEmpty ? 'Enter your a username' : null,
                         onChanged: (val) {
-                          setState(() => email = val);
+                          setState(() => username = val);
                         },
                         keyboardType: TextInputType.emailAddress,
                         cursorColor: textColor100,
@@ -116,9 +117,9 @@ class _CreateAccountState extends State<CreateAccount> {
               Spacer(),
               Container(
                 decoration: BoxDecoration(
-                    gradient: email.length > 2 ? storyGradient : fading,
-                    borderRadius: BorderRadius.circular(30)),
-                height: 55,
+                    gradient: username.length > 4 ? storyGradient : fading,
+                    borderRadius: BorderRadius.circular(5)),
+                height: 50,
                 width: double.infinity,
                 child: TextButton(
                     onPressed: () async {
@@ -135,7 +136,7 @@ class _CreateAccountState extends State<CreateAccount> {
                           fontFamily: 'Mabry-Pro',
                           fontSize: 15,
                           fontWeight: FontWeight.w900,
-                          color: email.length > 2 ? background : textColor60),
+                          color: username.length > 4 ? background : textColor60),
                     )),
               ),
               const SizedBox(

@@ -67,7 +67,7 @@ class _OnBoardState extends State<OnBoard> {
           scrollDirection: Axis.horizontal,
             itemCount: screens.length,
             controller: _pageController,
-            physics: const NeverScrollableScrollPhysics(),
+            //physics: const NeverScrollableScrollPhysics(),
             onPageChanged: (int index) {
               setState(() {
                 currentIndex = index;
@@ -149,7 +149,7 @@ class _OnBoardState extends State<OnBoard> {
                                   // ignore: prefer_const_constructors
                                   builder: (context) => Login()));
                         }
-
+        
                         _pageController.nextPage(
                           duration: const Duration(milliseconds: 400),
                           curve: Curves.decelerate,

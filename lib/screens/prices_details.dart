@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:retron/models/coinModel.dart';
+import 'package:retron/models/coinprices.dart';
 import 'package:retron/screens/login_prices.dart';
 
 import 'package:retron/shared/constant.dart';
 
 class PriceDetails extends StatelessWidget {
   final Coin coin;
-  const PriceDetails({Key? key, required this.coin}) : super(key: key);
+  final CoinPrice coinPrice;
+  const PriceDetails({Key? key, required this.coin, required this.coinPrice})
+      : super(key: key);
+      
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +24,7 @@ class PriceDetails extends StatelessWidget {
         elevation: 0.0,
         leading: Builder(
           builder: (context) {
-          return IconButton(
+            return IconButton(
                 iconSize: 16,
                 onPressed: (() {
                   Navigator.pop(
@@ -63,7 +67,7 @@ class PriceDetails extends StatelessWidget {
                             NumberFormat.simpleCurrency(
                               locale: 'en_US',
                               decimalDigits: 2,
-                            ).format(coin.price),
+                            ).format(coinPrice.currentPrice),
                             style: const TextStyle(
                               color: textColor100,
                               fontFamily: 'Mabry-Pro',
@@ -75,12 +79,12 @@ class PriceDetails extends StatelessWidget {
                             height: 10,
                           ),
                           Text(
-                            NumberFormat.decimalPercentPattern(
-                              locale: 'en_US',
-                              decimalDigits: 2,
-                            ).format(coin.changePercentage),
+                        coinPrice.priceChange24H.toDouble() < 0
+                        ? coinPrice.priceChange24H .toDouble().toString() + '%'
+                        : '+' + coinPrice.priceChange24H .toDouble().toString() + '%',
                             style: TextStyle(
-                              color: coin.changePercentage < 0 ? error : success,
+                              color:
+                                  coinPrice.priceChange24H < 0 ? error : success,
                               fontFamily: 'Mabry-Pro',
                               fontSize: 13,
                               fontWeight: FontWeight.w500,
@@ -90,18 +94,21 @@ class PriceDetails extends StatelessWidget {
                       ),
                     ),
                     SizedBox(
-                        height: 38, width: 38, child: Image.asset(coin.imageUrl))
+                        height: 38,
+                        width: 38,
+                        child: Image.asset(coin.imageUrl))
                   ],
                 ),
                 const SizedBox(
                   height: 110,
                 ),
                 Column(
-                  children: const[
+                  children: const [
                     SizedBox(
                       height: 100,
                       width: 100,
-                      child: Image(image: AssetImage('assets/images/graph.png')),
+                      child:
+                          Image(image: AssetImage('assets/images/graph.png')),
                     ),
                     SizedBox(
                       height: 3,
@@ -116,7 +123,9 @@ class PriceDetails extends StatelessWidget {
                     ),
                   ],
                 ),
-              const SizedBox(height: 85,),
+                const SizedBox(
+                  height: 85,
+                ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -128,29 +137,27 @@ class PriceDetails extends StatelessWidget {
                           fontWeight: FontWeight.w400,
                           color: textColor100),
                     ),
-                    const SizedBox(height: 10,),
+                    const SizedBox(
+                      height: 10,
+                    ),
                     Container(
-                      width: 335,
-                    
-                      decoration: BoxDecoration(border: Border.all(
-                        width: 1,
-                        color: stroke
-                      ),
-                      borderRadius: BorderRadius.circular(10),
-                      color: contain
-                      ),
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                          border: Border.all(width: 1, color: stroke),
+                          borderRadius: BorderRadius.circular(10),
+                          color: contain),
                       child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 16, vertical: 16),
                         child: Text(
                           coin.about,
                           textAlign: TextAlign.left,
                           style: const TextStyle(
-                            color: textColor60,
-                            height: 1.6,
-                            fontFamily: 'Mabry-Pro',
-                            fontSize: 14,
-                            fontWeight: FontWeight.w400
-                          ),
+                              color: textColor60,
+                              height: 1.6,
+                              fontFamily: 'Mabry-Pro',
+                              fontSize: 14,
+                              fontWeight: FontWeight.w400),
                         ),
                       ),
                     )

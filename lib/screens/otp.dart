@@ -4,73 +4,72 @@ import 'package:retron/screens/login.dart';
 import 'package:retron/shared/constant.dart';
 
 class OTP extends StatefulWidget {
-  const OTP({Key? key}) : super(key: key);
+  final String value;
+  const OTP({Key? key, required this.value}) : super(key: key);
 
   @override
   State<OTP> createState() => _OTPState();
 }
 
 class _OTPState extends State<OTP> {
-   final _formKey = GlobalKey<FormState>();
+  final _formKey = GlobalKey<FormState>();
   String otp = '';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: background,
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 18),
-          child: Column(
-            children: [
-              const SizedBox(
-                height: 15,
-              ),
+      child: Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 18),
+      child: Column(
+      children: [
+      const SizedBox(
+        height: 15,
+      ),
+      Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+      // ignore: sized_box_for_whitespace
+      Container(
+      height: 10,
+      child: Image.asset('assets/images/Return.png')),
+      ],
+      ),
+      const SizedBox(
+        height: 40,
+      ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  // ignore: sized_box_for_whitespace
-                  InkWell(
-                    onTap: () {
-                       Navigator.pop(
-                            context,
-                            MaterialPageRoute(
-                                builder: ((context) => const Login())));
-                    },
-                    child: Container( 
-                      height: 10,
-                        child: Image.asset('assets/images/Return.png')),
-                  ),
-                ],
-              ),
-              const SizedBox(
-                height: 40,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
-                      Text(
-                        'Verify OTP Code',
-                        style: TextStyle(
-                            fontFamily: 'Mabry-Pro',
-                            color: textColor100,
-                            fontSize: 24,
-                            fontWeight: FontWeight.w500),
-                      ),
-                      SizedBox(
-                        height: 12,
-                      ),
-                      Text(
-                        'Enter the six digit OTP code sent to your email',
-                        style: TextStyle(
-                            fontFamily: 'Mabry-Pro',
-                            color: textColor60,
-                            fontSize: 15,
-                            fontWeight: FontWeight.w400),
-                      ),
-                    ],
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text(
+                          'Verify OTP Code',
+                          style: TextStyle(
+                              fontFamily: 'Mabry-Pro',
+                              color: textColor100,
+                              fontSize: 24,
+                              fontWeight: FontWeight.w500),
+                        ),
+                        const SizedBox(
+                          height: 12,
+                        ),
+                        Text(
+                          'Enter the six digit OTP code sent to ${widget.value}',
+                          maxLines: 1,
+                          overflow: TextOverflow.fade,
+                          textAlign: TextAlign.start,
+                          softWrap: false,
+                          style: const TextStyle(
+                              fontFamily: 'Mabry-Pro',
+                              color: textColor60,
+                              fontSize: 15,
+                              fontWeight: FontWeight.w400),
+                        ),
+                      ],
+                    ),
                   )
                 ],
               ),
@@ -110,7 +109,8 @@ class _OTPState extends State<OTP> {
                           focusColor: textColor100,
                           fillColor: inputColor,
                           filled: true,
-                          contentPadding: const EdgeInsets.fromLTRB(15, 17, 15, 17),
+                          contentPadding:
+                              const EdgeInsets.fromLTRB(15, 17, 15, 17),
                           hintText: 'OTP code',
                           hintStyle: const TextStyle(
                               fontFamily: 'Mabry-Pro',
@@ -119,12 +119,12 @@ class _OTPState extends State<OTP> {
                               color: textColor40),
                         )),
                   )),
-              Spacer(),
+              const Spacer(),
               Container(
                 decoration: BoxDecoration(
                     gradient: otp.length > 3 ? storyGradient : fading,
-                    borderRadius: BorderRadius.circular(30)),
-                height: 55,
+                    borderRadius: BorderRadius.circular(5)),
+                height: 50,
                 width: double.infinity,
                 child: TextButton(
                     onPressed: () async {

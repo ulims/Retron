@@ -48,7 +48,7 @@ class _EditProfileState extends State<EditProfile> {
         automaticallyImplyLeading: false,
         backgroundColor: background,
         title: const Text(
-        'Refferals',
+        'Edit Profile',
         style: TextStyle(
         fontFamily: 'Mabry-Pro',
         fontSize: 20,

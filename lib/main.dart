@@ -3,17 +3,17 @@ import 'package:flutter/services.dart';
 import 'package:retron/screens/login.dart';
 import 'package:retron/screens/onbaord.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:native_notify/native_notify.dart';
 
 int? isviewed;
 
 
 void main() async {
- WidgetsFlutterBinding.ensureInitialized();
+  WidgetsFlutterBinding.ensureInitialized();
+  NativeNotify.initialize(1878, 'N2EQ1kQM1R7m6QZgUUxsc1', null, null);
 
-  SystemChrome.setPreferredOrientations([
-    DeviceOrientation.portraitUp,
-    DeviceOrientation.portraitDown
-  ]);
+  SystemChrome.setPreferredOrientations(
+      [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
       statusBarColor: Colors.transparent,
       statusBarBrightness: Brightness.dark,
