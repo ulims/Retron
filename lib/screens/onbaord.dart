@@ -78,24 +78,38 @@ class _OnBoardState extends State<OnBoard> {
                 child: Column(
                   children: [
                     Image.asset(screens[index].img),
-                    const SizedBox(height: 30),
+                    const SizedBox(height: 15),
                     Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 18),
-                      child: Text(
-                        screens[index].text,
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 24.0,
-                          fontWeight: FontWeight.w600,
-                          height: 1.5,
-                          fontFamily: 'Mabry-Pro',
-                          color: index % 2 == 0 ? textColor100 : textColor100,
-                        ),
+                      padding: const EdgeInsets.symmetric(horizontal: 25),
+                      child: TweenAnimationBuilder(
+                        tween: Tween<double>(begin: 0, end: 1),
+                        duration: const Duration(milliseconds: 500),
+                        curve: Curves.easeIn,
+                        builder: (BuildContext context, double val, Widget? child){
+                          return Opacity(
+                            opacity: val,
+                            child: Padding(
+                              padding: EdgeInsets.only(top: val * 20),
+                              child: child,
+                              ),
+                          );
+                        },
+                        child: Text(
+                          screens[index].text,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontSize: 24.0,
+                            fontWeight: FontWeight.w600,
+                            height: 1.5,
+                            fontFamily: 'Mabry-Pro',
+                            color: index % 2 == 0 ? textColor100 : textColor100,
+                          ),
+                        )
                       ),
                     ),
                     const SizedBox(height: 10),
                     Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 18),
+                      padding: const EdgeInsets.symmetric(horizontal: 25),
                       child: Text(
                         screens[index].desc,
                         textAlign: TextAlign.center,
@@ -110,7 +124,9 @@ class _OnBoardState extends State<OnBoard> {
                     ),
                     const SizedBox(height: 35),
                     // ignore: sized_box_for_whitespace
-                    Container(
+                    AnimatedContainer(
+                      duration: Duration(milliseconds: 200),
+                      curve: Curves.easeIn,
                       height: 10.0,
                       child: ListView.builder(
                         itemCount: screens.length,
@@ -123,7 +139,7 @@ class _OnBoardState extends State<OnBoard> {
                                 Container(
                                   margin:
                                       const EdgeInsets.symmetric(horizontal: 3.0),
-                                  width: currentIndex == index ? 25 : 8,
+                                  width: currentIndex == index ? 20 : 8,
                                   height: 8,
                                   decoration: BoxDecoration(
                                     color: currentIndex == index
@@ -151,8 +167,8 @@ class _OnBoardState extends State<OnBoard> {
                         }
         
                         _pageController.nextPage(
-                          duration: const Duration(milliseconds: 400),
-                          curve: Curves.decelerate,
+                          duration: const Duration(milliseconds: 300),
+                          curve: Curves.easeIn,
                         );
                       },
                       child: Container(
@@ -168,10 +184,10 @@ class _OnBoardState extends State<OnBoard> {
                             ),
                         padding: const EdgeInsets.symmetric(
                             horizontal: 120.0, ),
-                        child: Row(mainAxisSize: MainAxisSize.min, children: const [
+                        child: Row(mainAxisSize: MainAxisSize.min, children: [
                         Text(
-                          'Get Started',
-                          style: TextStyle(
+                          index % 3 == 2 ? 'Get Started' : 'Next',
+                          style: const TextStyle(
                             fontFamily: 'Mabry-Pro',
                             fontSize: 15,
                             fontWeight: FontWeight.w900,
